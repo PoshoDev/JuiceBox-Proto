@@ -1,0 +1,27 @@
+Converting GML script: ${project_dir}\scripts\trace\trace.gml
+Converted description /// @description trace(string)/// @param string
+
+Converting GML script: ${project_dir}\scripts\csv_load\csv_load.gml
+Converted description /// @description csv_load(filename, _sep)/// @param filename
+/// @param  _sep
+
+Converting GML script: ${project_dir}\scripts\csv_load_escape\csv_load_escape.gml
+Converted description /// @description csv_load_escape(filename, _sep)/// @param filename
+/// @param  _sep
+
+Converting GML script: ${project_dir}\scripts\csv_save\csv_save.gml
+Converted description /// @description csv_save(filename, array, _sep)/// @param filename
+/// @param  array
+/// @param  _sep
+
+Converting GML script: ${project_dir}\scripts\csv_save_escape\csv_save_escape.gml
+Converted description /// @description csv_save_escape(filename, array, _sep)/// @param filename
+/// @param  array
+/// @param  _sep
+
+Converting GML script: ${project_dir}\scripts\array_draw_debug\array_draw_debug.gml
+Converted description /// @description array_draw_debug(array,x,y,x_space,y_space)/// @param array
+/// @param x
+/// @param y
+/// @param x_space
+/// @param y_space
