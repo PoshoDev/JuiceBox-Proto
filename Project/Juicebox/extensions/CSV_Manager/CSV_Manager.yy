@@ -58,7 +58,7 @@
   "copyToTargets": 105554172285166,
   "parent": {
     "name": "Extensions",
-    "path": "folders/Extensions.yy",
+    "path": "folders/Misc/Extensions.yy",
   },
   "resourceVersion": "1.0",
   "name": "CSV_Manager",
