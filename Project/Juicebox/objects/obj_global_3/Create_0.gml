@@ -1,4 +1,5 @@
-/*#macro block_add 8
+
+#macro block_add 8
 #macro block_min 8
 #macro block_max 128
 
@@ -24,20 +25,4 @@ enum dt
     repeats,
     cleared,
     LENGTH
-};*/
-
-globalvar data;
-data = ds_grid_create(dt.LENGTH, 0);
-
-
-enum md { standard, addnew };
-enum vw { gantt };
-
-globalvar mode;
-mode = md.standard;
-
-globalvar block_size;
-block_size = 16;
-
-task_new = noone;
-button[0] = noone;
+};

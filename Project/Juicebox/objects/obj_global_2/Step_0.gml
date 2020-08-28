@@ -1,3 +1,5 @@
+if (live_call()) { return live_result; }
+
 if (keyboard_check(vk_control))
 {
 	if (mouse_wheel_up() && block_size<block_max)

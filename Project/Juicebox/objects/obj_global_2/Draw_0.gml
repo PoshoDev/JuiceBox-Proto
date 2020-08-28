@@ -1,7 +1,9 @@
 if (live_call()) { return live_result; }
 
+lol = 1;
+
 // Gantt's Columns
-draw_set_color(c_blue);
+draw_set_color(c_dkgray);
 for (var i=block_size; i<room_width; i+=block_size*2)
 	draw_rectangle(i, 0, i+block_size, room_height, false);
 	
