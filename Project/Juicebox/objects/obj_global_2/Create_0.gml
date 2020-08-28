@@ -30,8 +30,8 @@ globalvar data;
 data = ds_grid_create(dt.LENGTH, 0);
 
 
-enum md { standard, addnew };
-enum vw { gantt };
+/*enum md { standard, addnew };
+enum vw { gantt };*/
 
 globalvar mode;
 mode = md.standard;

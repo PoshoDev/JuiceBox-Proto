@@ -21,10 +21,4 @@ switch(mode)
 	break;
 }
 
-// The all.
-if (task_new != noone)
-	task_new.Draw();
-	
-for (var i=0; i<array_length(button); i++)
-	if (button[i] != noone)
-		button[i].Draw();
+loop_draw();

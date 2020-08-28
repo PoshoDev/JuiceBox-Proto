@@ -57,8 +57,8 @@
   "androidPermissions": [],
   "copyToTargets": 105554172285166,
   "parent": {
-    "name": "Extensions",
-    "path": "folders/Misc/Extensions.yy",
+    "name": "CSV_Manager",
+    "path": "folders/Misc/Extensions/CSV_Manager.yy",
   },
   "resourceVersion": "1.0",
   "name": "CSV_Manager",

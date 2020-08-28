@@ -1,28 +1,18 @@
 
-#macro block_add 8
-#macro block_min 8
-#macro block_max 128
+enums_set();
 
-#macro popup_width 600
-#macro popup_height 800
+// Creates the data;
+globalvar data;
+data = ds_grid_create(dt.LENGTH, 0);
 
-#macro og self
+globalvar mode;
+mode = md.standard;
 
-enum dt
-{
-    category,
-    type_,
-    title,
-    notes,
-    url,
-    from_day,
-    from_month,
-    from_year,
-    due_day,
-    due_month,
-    due_year,
-    time_est,
-    repeats,
-    cleared,
-    LENGTH
-};
+globalvar view;
+view = vw.gantt;
+
+globalvar block_size;
+block_size = 16;
+
+task_new = noone;   // Temp object for when you're adding something new.
+button[0] = noone;  // idk rn
