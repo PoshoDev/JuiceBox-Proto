@@ -113,13 +113,6 @@ function key_global_shortcut_addnew()
 				case "saturday":	case "sat":
 					var cd = date_get_weekday(date_current_datetime());
 					var dd = weekday_get_int(found);
-					
-					show_debug_message("CD "+string(cd)+" DD "+string(dd))
-					
-					/*if (dd > cd)
-						var add = dd - cd;
-					else if (dd <= cd)
-						for (var i=cd; i!=)*/
 						
 					var count = 0;
 					do
@@ -129,7 +122,6 @@ function key_global_shortcut_addnew()
 					}
 					until (cd == dd);
 					
-					show_debug_message("Increasing "+string(count)+" days");
 					var time = date_inc_day(date_current_datetime(), count);
 					
 					task_new.due_day = date_get_day(time);
