@@ -46,28 +46,23 @@ function view_reset()
         
     enum vs { pointer, day_start, day_count, LENGTH };
     
-    globalvar vis;  // Grid of the visible tasks.
-    vis = ds_grid_create(vs.LENGTH, 0);
+    ds_list_clear(vis);
     
     var date_min = date_current_datetime();
     var date_max = date_inc_day(date_min, view_count);
     
-    show_debug_message("abubu")
-    
     var added = 0;
     for (var i=0; i<ds_list_size(task); i++)
     {
-        show_debug_message("checking")
-        var date_from = date_create_datetime(ds_list_find_value(task, i).from_year, ds_list_find_value(task, i).from_month, ds_list_find_value(task, i).from_day, 0, 0, 0);
-        var date_due = date_create_datetime(ds_list_find_value(task, i).due_year, ds_list_find_value(task, i).due_month, ds_list_find_value(task, i).due_day, 0, 0, 0);
+        var date_from = date_create_datetime(dsl(task, i).from_year, dsl(task, i).from_month, dsl(task, i).from_day, 0, 0, 0);
+        var date_due = date_create_datetime(dsl(task, i).due_year, dsl(task, i).due_month, dsl(task, i).due_day, 0, 0, 0);
         
         if ((date_from>=date_min && date_from<=date_max) || (date_due>=date_min && date_due<=date_max))
         {
-            show_debug_message("checked")
-            ds_grid_resize(vis, vs.LENGTH, ++added);
-            ds_grid_add(vis, vs.pointer, added, ds_list_find_value(task, i));
+            ds_list_add(vis, dsl(task, i));
+            dsl(vis, ds_list_size(vis)-1).SetPos(gstx, gsty);
             
-            if (added >= view_tasks)
+            if (++added >= view_tasks)
                 break;
         }
     }

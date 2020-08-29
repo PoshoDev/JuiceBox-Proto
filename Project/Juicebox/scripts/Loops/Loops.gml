@@ -20,6 +20,9 @@ function loop_draw()
 	if (task_new != noone)
 		task_new.Draw();
 		
+	for (var i=0; i<ds_list_size(vis); i++)
+		ds_list_find_value(vis, i).Draw();
+		
 	for (var i=0; i<array_length(button); i++)
 		if (button[i] != noone)
 			button[i].Draw();

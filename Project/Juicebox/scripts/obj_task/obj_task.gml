@@ -20,7 +20,7 @@ function obj_task() constructor
 	
 	x = 0;
 	y = 0;
-	w = block_size * 4;
+	length = 1;
 	
 	alpha = -1;
 	
@@ -35,8 +35,9 @@ function obj_task() constructor
 	Draw = function()
 	{
 		draw_set_color(c_orange);
-		draw_set_alpha(alpha);
-		draw_rectangle(x, y, x+w, y+block_size, false);
+		
+		//draw_set_alpha(alpha);
+		draw_rectangle(x, y, x+(block_size*length), y+block_size, false);
 		
 		draw_set_color(c_white);
 		draw_set_alpha(1);
