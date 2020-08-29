@@ -29,7 +29,6 @@ function task_create() {
 
 
 	// Update the CSV.
-
 	var at = array_height_2d(global.bulk);
 
 	global.bulk[at, col.category] =     obj.category;

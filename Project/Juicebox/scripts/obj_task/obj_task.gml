@@ -5,7 +5,7 @@ function obj_task() constructor
     
 	category =   -1;
 	type_ =      -1;
-	title =      "";
+	title =      "UNDEF";
 	notes =      "";
 	url =        "";
 	from_day =   date_get_day(date);
@@ -23,10 +23,22 @@ function obj_task() constructor
 	w = 0;
 	
 	x2 = 0;
+	y2 = 0;
+	
 	alpha = -1;
+	
+	color = c_orange;
 	
 	
 	// Events
+	
+	Step_Begin = function()
+	{
+		if (point_in_rectangle(mouse_x, mouse_y, x, y, x2, y2))
+			color = c_maroon;
+		else
+			color = c_orange;
+	}
 	
 	Step = function()
 	{
@@ -35,14 +47,22 @@ function obj_task() constructor
 	
 	Draw = function()
 	{
-		draw_set_color(c_orange);
+		draw_set_color(color);
 		
 		//draw_set_alpha(alpha);
-		draw_rectangle(x, y, x2, y+block_size, false);
+		draw_rectangle(x, y, x2, y2, false);
+		
+		draw_set_color(c_black);
+		draw_set_halign(fa_left);
+		draw_set_valign(fa_middle);
+		draw_text(cat+4, y+block_size/2, title);
 		
 		draw_set_color(c_white);
 		draw_set_alpha(1);
 	}
+	
+	
+	// Functions
 	
 	SetPos = function(px, py, pw)
 	{
@@ -51,5 +71,6 @@ function obj_task() constructor
 		w = pw;
 		
 		x2 = x + block_size*w;
+		y2 = y + block_size;
 	}
 }

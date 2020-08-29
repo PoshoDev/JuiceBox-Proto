@@ -25,11 +25,11 @@ function view_draw_gantt()
 	{
 		// Day's Square
 		draw_set_color(c_white);
-		draw_rectangle(gstx+block_size/2+block_size*i, block_size, gstx+block_size/2+block_size*(i+1), gsty, false);
+		draw_rectangle(gstx+block_size*i, block_size, gstx+block_size*(i+1), gsty, false);
 		draw_set_color(c_black);
-		draw_rectangle(gstx+block_size/2+block_size*i, block_size, gstx+block_size/2+block_size*(i+1), gsty, true);
+		draw_rectangle(gstx+block_size*i, block_size, gstx+block_size*(i+1), gsty, true);
 		
 		// Day's Number
-		draw_text(gstx+block_size*(i+1), gsty-block_size/2, string(dsg(view_days, vd.day, i)));
+		draw_text(gstx+block_size/2+block_size*i, gsty-block_size/2, string(dsg(view_days, vd.day, i)));
 	}
 }

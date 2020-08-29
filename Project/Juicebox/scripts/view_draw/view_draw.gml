@@ -81,7 +81,7 @@ function view_reset()
         var date_from = date_create_datetime(dsl(task, i).from_year, dsl(task, i).from_month, dsl(task, i).from_day, 0, 0, 0);
         var date_due = date_create_datetime(dsl(task, i).due_year, dsl(task, i).due_month, dsl(task, i).due_day, 0, 0, 0);
         
-        if ((date_from>=date_min && date_from<=date_max) || (date_due>=date_min && date_due<=date_max))
+        if ((date_from>=date_min || date_from<=date_max) || (date_due>=date_min || date_due<=date_max))
         {
             var task_day = dsl(task, i).from_day;
             var task_month = dsl(task, i).from_month;

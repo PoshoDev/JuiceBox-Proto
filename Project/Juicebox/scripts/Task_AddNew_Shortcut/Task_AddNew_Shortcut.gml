@@ -126,7 +126,7 @@ function task_addnew_string()
 				time = date_inc_day(date_current_datetime(), count);
 				task_new.due_day = date_get_day(time);
 				task_new.due_month = date_get_month(time);
-				task_new.due_year = date_get_month(time);
+				task_new.due_year = date_get_year(time);
 			break;
 				
 			default:

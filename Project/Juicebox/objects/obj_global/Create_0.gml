@@ -16,7 +16,7 @@ globalvar view;
 view = vw.gantt;
 
 globalvar block_size;
-block_size = 16;
+block_size = 24;
 
 globalvar view_days; // Maximum number of days shown (colunmns).
 view_days = ds_grid_create(vs.LENGTH, 0);
