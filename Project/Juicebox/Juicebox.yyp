@@ -39,6 +39,7 @@
     {"id":{"name":"GMLiveAPI","path":"scripts/GMLiveAPI/GMLiveAPI.yy",},"order":1,},
     {"id":{"name":"csv_save_escape","path":"scripts/csv_save_escape/csv_save_escape.yy",},"order":4,},
     {"id":{"name":"array_draw_debug","path":"scripts/array_draw_debug/array_draw_debug.yy",},"order":5,},
+    {"id":{"name":"Time","path":"scripts/Time/Time.yy",},"order":14,},
     {"id":{"name":"scr_emu_demo_mesh","path":"scripts/scr_emu_demo_mesh/scr_emu_demo_mesh.yy",},"order":2,},
     {"id":{"name":"obj_emu_demo","path":"objects/obj_emu_demo/obj_emu_demo.yy",},"order":0,},
     {"id":{"name":"spr_emu_checker","path":"sprites/spr_emu_checker/spr_emu_checker.yy",},"order":3,},
