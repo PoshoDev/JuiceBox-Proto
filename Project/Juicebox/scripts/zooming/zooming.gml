@@ -7,5 +7,7 @@ function zooming()
     		block_size += block_add;
     	else if (mouse_wheel_down() && block_size>block_min)
     		block_size -= block_add;
+    		
+    	view_reset();
     }
 }

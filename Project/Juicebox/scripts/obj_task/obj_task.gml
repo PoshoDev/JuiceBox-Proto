@@ -41,4 +41,10 @@ function obj_task() constructor
 		draw_set_color(c_white);
 		draw_set_alpha(1);
 	}
+	
+	SetPos = function(px, py)
+	{
+		x = px;
+		y = py;
+	}
 }

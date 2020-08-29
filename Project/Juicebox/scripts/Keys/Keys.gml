@@ -2,6 +2,7 @@
 function key_manager()
 {
 	key_n();
+	key_r();
 	
 	key_global_shortcut_addnew();
 }
@@ -19,10 +20,18 @@ function key_n()
 	}
 }
 
+
+function key_r()
+{
+	if (keyboard_check_pressed(ord("R")))
+	{
+		view_reset();
+	}
+}
+
 function key_global_shortcut_addnew()
 {
 	// BAS tarea 1. from tomorrow due May 10 ~30m repeats weekly url:lol.com
-	if (live_call()) { return live_result; }
 	
 	var key_1 = keyboard_check_direct(vk_control);
 	var key_2 = keyboard_check_direct(vk_shift);
@@ -203,6 +212,10 @@ function key_global_shortcut_addnew()
 			else
 				show_message("Syntax Errors:\n"+errors);
 		}
+		
+		ds_list_add(task, task_new);
+		task_new = noone;
+		view_reset();
 	}
 }
 
