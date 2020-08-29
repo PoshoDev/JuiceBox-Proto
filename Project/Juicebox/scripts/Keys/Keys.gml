@@ -165,7 +165,17 @@ function key_global_shortcut_addnew()
 			}
 			
 			
+			// Time Est.
+			var found = keyword_find_string(str, "~");
+			if (found != "")
+			{
+				var num = real(string_delete(found, string_length(found), 1));
+				
+				if (string_char_at(found, string_length(found)) == "h")
+					num *= 60;
 					
+				task_new.time_est = num;
+			}
 			
 			
 			if (errors == "")
