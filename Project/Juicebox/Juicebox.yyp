@@ -114,6 +114,7 @@
     {"id":{"name":"emu_init","path":"scripts/emu_init/emu_init.yy",},"order":0,},
     {"id":{"name":"scribble_set_animation","path":"scripts/scribble_set_animation/scribble_set_animation.yy",},"order":1,},
     {"id":{"name":"scribble_get_width","path":"scripts/scribble_get_width/scribble_get_width.yy",},"order":5,},
+    {"id":{"name":"Task_AddNew_Shortcut","path":"scripts/Task_AddNew_Shortcut/Task_AddNew_Shortcut.yy",},"order":14,},
     {"id":{"name":"EmuButton_Image","path":"scripts/EmuButton_Image/EmuButton_Image.yy",},"order":3,},
     {"id":{"name":"compatibility_report_270220_2133203320","path":"notes/compatibility_report_270220_2133203320/compatibility_report_270220_2133203320.yy",},"order":0,},
     {"id":{"name":"scribble_autotype_set_pause","path":"scripts/scribble_autotype_set_pause/scribble_autotype_set_pause.yy",},"order":5,},
