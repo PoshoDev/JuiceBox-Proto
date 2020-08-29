@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Scripts",
-    "path": "folders/Scripts.yy",
+    "name": "Posho Lib (0.1)",
+    "path": "folders/Misc/Extensions/Posho/Posho Lib (0.1).yy",
   },
   "resourceVersion": "1.0",
-  "name": "DS_List_Tools",
+  "name": "Posho_DS_Lists",
   "tags": [],
   "resourceType": "GMScript",
 }

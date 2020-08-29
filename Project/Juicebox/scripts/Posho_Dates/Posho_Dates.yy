@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Pages",
-    "path": "folders/Misc/Extensions/Emu/Scribble/Scribble/Pages.yy",
+    "name": "Posho Lib (0.1)",
+    "path": "folders/Misc/Extensions/Posho/Posho Lib (0.1).yy",
   },
   "resourceVersion": "1.0",
-  "name": "scribble_page_count",
+  "name": "Posho_Dates",
   "tags": [],
   "resourceType": "GMScript",
 }
