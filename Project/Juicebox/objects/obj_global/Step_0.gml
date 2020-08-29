@@ -1,3 +1,5 @@
+if (live_call()) { return live_result; }
 
-if (keyboard_check_pressed(vk_enter))
-    task_create();
+key_manager();
+zooming();
+loop_step();

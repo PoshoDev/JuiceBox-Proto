@@ -276,7 +276,7 @@
   "maintainGms1Font": false,
   "parent": {
     "name": "Graphics",
-    "path": "folders/Emu/Graphics.yy",
+    "path": "folders/Misc/Extensions/Emu/Graphics.yy",
   },
   "resourceVersion": "1.0",
   "name": "fnt_emu_default",
