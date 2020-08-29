@@ -43,6 +43,8 @@ function key_global_shortcut_addnew()
 			str2 = get_string("New Task", str2);
 			var str = string_lower(str2);
 			
+			if (str2 == "")
+				break;
 			
 			// Category
 			var pos = string_pos(" ", str2);
@@ -65,7 +67,10 @@ function key_global_shortcut_addnew()
 			
 			
 			// Due
+			var time = 0;
+			
 			found = keyword_find_string(str, "due ");
+			show_debug_message(found)
 			switch(found)
 			{
 				case "tomorrow":
@@ -78,30 +83,56 @@ function key_global_shortcut_addnew()
 				
 				break;
 				
-				case "january":
-				case "february":
-				case "march":
-				case "april":
-				case "may":
-				case "june":
-				case "july":
-				case "august":
-				case "september":
-				case "october":
-				case "november":
-				case "december":
-				case "jan":
-				case "feb":
-				case "mar":
-				case "apr":
-				case "jun":
-				case "jul":
-				case "aug":
-				case "sep":
-				case "oct":
-				case "nov":
-				case "dec":
 				
+				case "january":   case "jan":
+				case "february":  case "feb":
+				case "march":     case "mar":
+				case "april":     case "apr":
+				case "may":                  
+				case "june":      case "jun":
+				case "july":      case "jul":
+				case "august":    case "aug":
+				case "september": case "sep":
+				case "october":   case "oct":
+				case "november":  case "nov":
+				case "december":  case "dec":
+					var cm = date_get_month(date_current_datetime());
+					var dm = month_get_int(found);
+					show_debug_message("Month "+string(dm))
+						
+					var year = (cm >= dm) ? date_get_year(date_inc_year(date_current_datetime(), 1)) : date_get_year(date_current_datetime());
+					
+					var count = 0;
+					do
+					{
+						cm = (cm>=11) ? 0 : cm+1;
+						count++;
+					}
+					until (cm == dm);
+					
+					time = date_inc_month(date_current_datetime(), count);
+					
+					var pos = string_pos("due ", str) + 4 + string_length(found) + 1;
+					
+					var day = 0;
+					
+					// 1st Number
+					var cha1 = string_char_at(str, pos);
+					if (cha1>="0" && cha1<="9")
+					{
+						// 2nd Number
+						var cha2 = string_char_at(str, pos+1);
+						if (cha2>="0" && cha2<="9")
+							day = real(cha1+cha2);
+						else
+							day = real(cha1);
+					}
+					else
+						errors += "\nNo due date number found.\nCHA: "+cha;
+						
+					task_new.due_day = day;
+					task_new.due_month = date_get_month(time);
+					task_new.due_year = year;
 				break;
 				
 				case "sunday":		case "sun":
@@ -122,8 +153,7 @@ function key_global_shortcut_addnew()
 					}
 					until (cd == dd);
 					
-					var time = date_inc_day(date_current_datetime(), count);
-					
+					time = date_inc_day(date_current_datetime(), count);
 					task_new.due_day = date_get_day(time);
 					task_new.due_month = date_get_month(time);
 					task_new.due_year = date_get_month(time);
@@ -135,7 +165,9 @@ function key_global_shortcut_addnew()
 			}
 			
 			
-			// End
+					
+			
+			
 			if (errors == "")
 			{
 				// Final Question:
@@ -176,7 +208,7 @@ function keyword_find_string(str, keyw)
 		if (!pos2)
 			pos2 = string_length(tempstr);
 			
-		return string_copy(str, pos+klen, pos2);
+		return string_replace(string_copy(str, pos+klen, pos2), " ", "");
 	}
 	else
 		return "";
