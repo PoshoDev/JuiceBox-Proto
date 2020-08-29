@@ -20,8 +20,9 @@ function obj_task() constructor
 	
 	x = 0;
 	y = 0;
-	length = 1;
+	w = 0;
 	
+	x2 = 0;
 	alpha = -1;
 	
 	
@@ -37,15 +38,18 @@ function obj_task() constructor
 		draw_set_color(c_orange);
 		
 		//draw_set_alpha(alpha);
-		draw_rectangle(x, y, x+(block_size*length), y+block_size, false);
+		draw_rectangle(x, y, x2, y+block_size, false);
 		
 		draw_set_color(c_white);
 		draw_set_alpha(1);
 	}
 	
-	SetPos = function(px, py)
+	SetPos = function(px, py, pw)
 	{
 		x = px;
 		y = py;
+		w = pw;
+		
+		x2 = x + block_size*w;
 	}
 }

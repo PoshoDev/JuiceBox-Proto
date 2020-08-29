@@ -21,7 +21,7 @@ function view_draw_gantt()
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_middle);
 	
-	for(var i=0; i<ds_list_size(view_days); i++)
+	for(var i=0; i<ds_grid_height(view_days); i++)
 	{
 		// Day's Square
 		draw_set_color(c_white);
@@ -30,6 +30,6 @@ function view_draw_gantt()
 		draw_rectangle(gstx+block_size/2+block_size*i, block_size, gstx+block_size/2+block_size*(i+1), gsty, true);
 		
 		// Day's Number
-		draw_text(gstx+block_size*(i+1), gsty-block_size/2, string(ds_list_find_value(view_days, i)));
+		draw_text(gstx+block_size*(i+1), gsty-block_size/2, string(dsg(view_days, vd.day, i)));
 	}
 }

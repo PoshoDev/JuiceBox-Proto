@@ -15,9 +15,9 @@ function view_draw()
 // For when you change sizes, etc.
 function view_reset()
 {
-    if (live_call()) { return live_result; }
+    //if (live_call()) { return live_result; }
     
-    show_debug_message("Reloaded Views!");
+    show_debug_message("Reloading...");
     
     globalvar cat; // Category width;
     cat = block_size * 2;
@@ -31,11 +31,10 @@ function view_reset()
 	globalvar gsty; // Gantt's Start Y
 	gsty = block_size * 2;
 	
-	globalvar view_days; // Maximum number of days shown (colunmns).
-    view_days = ds_list_create();
+	
 
     globalvar view_tasks; // Maximum number of tasks shown (rows).
-    view_tasks = 0;
+    view_tasks = 64;
     
     globalvar view_count; // Number of days displayed in view.
     view_count = 0;
@@ -43,6 +42,31 @@ function view_reset()
     var view_count = 0;
     for (var i=gstx; i<rw; i+=block_size*2)
         view_count += 2;
+        
+    // Day Numbers
+	var day_current = date_get_day(date_current_datetime());
+	var month_days = date_days_in_month(date_current_datetime());
+	
+	ds_grid_destroy(view_days);
+    view_days = ds_grid_create(vd.LENGTH, view_count);
+	
+	var put = day_current;
+	var px = gstx;
+	for (var i=0; i<view_count; i++)
+	{
+		ds_grid_add(view_days, vd.day, i, put++);
+		ds_grid_add(view_days, vd.month, i, date_get_month(date_current_datetime()));
+		ds_grid_add(view_days, vd.x_, i, px);
+		
+		px += block_size;
+		
+		if (put > month_days)
+		{
+			put = 1;
+			month_days = date_days_in_month(date_inc_month(date_current_datetime(), 1));
+		}
+	}
+    
         
     enum vs { pointer, day_start, day_count, LENGTH };
     
@@ -59,31 +83,35 @@ function view_reset()
         
         if ((date_from>=date_min && date_from<=date_max) || (date_due>=date_min && date_due<=date_max))
         {
-            ds_list_add(vis, dsl(task, i));
-            dsl(vis, ds_list_size(vis)-1).SetPos(gstx, gsty);
+            var task_day = dsl(task, i).from_day;
+            var task_month = dsl(task, i).from_month;
             
-            if (++added >= view_tasks)
-                break;
+            var x_ = -1;
+            for (var j=0; j<ds_grid_height(view_days); j++)
+            {   
+                var vd_day = dsg(view_days, vd.day, j);
+                var vd_month = dsg(view_days, vd.month, j);
+                
+                if (task_day==vd_day && task_month==vd_month)
+                {
+                    x_ = dsg(view_days, vd.x_, j);
+                    break;
+                }
+            }
+            
+            var y_ = gsty + block_size*i;
+            var w_ = date_day_span(date_from, date_due);
+            
+            ds_list_add(vis, dsl(task, i));
+            dsl(vis, ds_list_size(vis)-1).SetPos(x_, y_, w_);
+            
+            /*if (++added >= view_tasks)
+                break;*/
         }
     }
     
-    // Day Numbers
-	var day_current = date_get_day(date_current_datetime());
-	var month_days = date_days_in_month(date_current_datetime());
-	
-	ds_list_clear(view_days);
-	
-	var put = day_current;
-	for (var i=0; i<view_count; i++)
-	{
-		ds_list_add(view_days, put++);
-		
-		if (put > month_days)
-		{
-			put = 1;
-			month_days = date_days_in_month(date_inc_month(date_current_datetime(), 1));
-		}
-	}
-	
-	
+    show_debug_message("Reloaded Views!");
+    show_debug_message("Total Tasks: "+string(ds_list_size(task)));
+    show_debug_message("Visible Tasks: "+string(ds_list_size(vis)));
+    show_debug_message("View Days: "+string(ds_grid_height(view_days)));
 }
